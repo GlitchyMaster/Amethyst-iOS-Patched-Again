@@ -194,11 +194,12 @@ typedef void(^XSTSCallback)(NSString *xsts, NSString *uhs);
         NSDictionary *errorDict = [NSJSONSerialization JSONObjectWithData: errorData options:kNilOptions error:nil];
         if ([errorDict[@"error"] isEqualToString:@"NOT_FOUND"]) {
             // If there is no profile, use the Xbox gamertag as username with Demo mode
+            //patch
             self.authData[@"profileId"] = @"00000000-0000-0000-0000-000000000000";
-            self.authData[@"username"] = [NSString stringWithFormat:@"Demo.%@", self.authData[@"xboxGamertag"]];
+            self.authData[@"username"] = self.authData[@"xboxGamertag"]; //remove [NSString stringWithFormat:@"Demo.%@", 
 
             if ([self saveChanges]) {
-                callback(@"DEMO", YES);
+                callback(@"DEMO", NO); //doesnt do anythign but why not patch yes to no
                 callback(nil, YES);
             } else {
                 callback(nil, NO);
