@@ -154,7 +154,6 @@ public final class Tools {
     private static String[] splitAndFilterEmpty(String argStr, MinecraftAccount profile) {
         List<String> strList = new ArrayList<String>();
         if(profile.username.startsWith("Demo.")) {
-            strList.add("");
             //strList.add("--demo"); //remove --demo from start arguments.
         }
         for (String arg : argStr.split(" ")) {
