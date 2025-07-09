@@ -1,3 +1,5 @@
+#import <Foundation/Foundation.h>
+
 #import "authenticator/BaseAuthenticator.h"
 #import "AccountListViewController.h"
 #import "AFNetworking.h"
